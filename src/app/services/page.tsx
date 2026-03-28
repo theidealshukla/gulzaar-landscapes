@@ -50,7 +50,7 @@ export default function ServicesPage() {
       <section className="py-20 md:py-32 bg-white">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <div className="sticky top-32">
+            <div className="lg:sticky lg:top-32">
               <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
                 Our Proven Work
                 <br />

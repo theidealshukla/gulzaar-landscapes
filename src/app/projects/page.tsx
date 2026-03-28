@@ -3,55 +3,14 @@ import PageHero from "@/components/PageHero";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/data/projects";
 
 export const metadata = {
   title: "Projects Portfolio | Gulzaar Landscapes",
   description: "View our recent landscaping masterpieces, from luxury farmhouse gardens to modern terrace and balcony renovations.",
 };
-
-const projects = [
-  {
-    id: 1,
-    title: "Project One – The Balcony Garden",
-    category: "Balcony Gardens",
-    image: "https://images.unsplash.com/photo-1524247108137-732e0f642303?q=80&w=800&auto=format&fit=crop",
-    colSpan: "col-span-1 md:col-span-2",
-    rowSpan: "row-span-2",
-  },
-  {
-    id: 2,
-    title: "Farm House Retreat",
-    category: "Farmhouse Designs",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop",
-    colSpan: "col-span-1",
-    rowSpan: "row-span-1",
-  },
-  {
-    id: 3,
-    title: "Urban Terrace Reborn",
-    category: "Terrace Gardens",
-    image: "https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=800&auto=format&fit=crop",
-    colSpan: "col-span-1",
-    rowSpan: "row-span-1",
-  },
-  {
-    id: 4,
-    title: "Rooftop Oasis",
-    category: "Terrace Gardens",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=800&auto=format&fit=crop",
-    colSpan: "col-span-1",
-    rowSpan: "row-span-2",
-  },
-  {
-    id: 5,
-    title: "The Green Lawn Renewed",
-    category: "Lawn Care",
-    image: "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=800&auto=format&fit=crop",
-    colSpan: "col-span-1 md:col-span-2",
-    rowSpan: "row-span-1",
-  },
-];
 
 export default function ProjectsPage() {
   return (
@@ -80,12 +39,13 @@ export default function ProjectsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[300px] gap-4 md:gap-6">
             {projects.map((project) => (
-              <div
-                key={project.id}
-                className={`group relative rounded-2xl overflow-hidden cursor-pointer ${project.colSpan} ${project.rowSpan}`}
+              <Link
+                href={`/projects/${project.slug}`}
+                key={project.slug}
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer block ${project.colSpan} ${project.rowSpan}`}
               >
                 <Image
-                  src={project.image}
+                  src={project.mainImage}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -103,12 +63,12 @@ export default function ProjectsPage() {
                       {project.title}
                     </h3>
                     
-                    <div className="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 delay-150">
+                    <div className="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center transform opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 delay-150">
                       <ArrowUpRight size={20} />
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
