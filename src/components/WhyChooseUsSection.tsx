@@ -46,22 +46,22 @@ export default function WhyChooseUsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-nowrap md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bg-white p-8 lg:p-10 rounded-3xl border border-border shadow-soft group hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+              className="bg-white p-6 md:p-8 lg:p-10 rounded-[2rem] border border-border shadow-soft group hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 w-[85vw] sm:w-[60vw] md:w-auto flex-shrink-0 snap-center"
             >
-              <div className="w-14 h-14 bg-cream rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white text-accent transition-colors duration-300">
-                <reason.icon className="w-6 h-6" />
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-cream rounded-2xl flex items-center justify-center mb-5 md:mb-6 group-hover:bg-accent group-hover:text-white text-accent transition-colors duration-300">
+                <reason.icon className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <h3 className="font-heading text-2xl font-bold text-primary mb-4">
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-primary mb-3 md:mb-4">
                 {reason.title}
               </h3>
-              <p className="font-body text-sm text-secondary/80 leading-relaxed">
+              <p className="font-body text-xs md:text-sm text-secondary/80 leading-relaxed md:leading-relaxed">
                 {reason.description}
               </p>
             </motion.div>

@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 import { ArrowDown, Leaf } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedFloral from "./AnimatedFloral";
 
 export default function HeroSection() {
   return (
     <section id="hero" className="relative min-h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden pt-20">
       {/* Immersive Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        {/* We use a high-end architectural/garden image: id 1598902108854-10e335adac99 or new one */}
         <Image
           src="https://images.unsplash.com/photo-1598902108854-10e335adac99?q=80&w=2500&auto=format&fit=crop"
           alt="Premium luxury landscape design by Gulzaar"
           fill
           unoptimized
-          className="object-cover scale-105"
+          className="object-cover scale-[1.03]"
           priority
           sizes="100vw"
         />
@@ -25,21 +25,29 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
       </div>
 
+      {/* Animated Floral Touches */}
+      <AnimatedFloral className="top-1/4 left-[10%] w-32 h-32 md:w-64 md:h-64 text-white opacity-10" delay={0} duration={14} />
+      <AnimatedFloral className="bottom-[20%] right-[10%] w-40 h-40 md:w-80 md:h-80 text-white opacity-10" delay={2} duration={18} />
+
       {/* Hero Content - Centered Elegance */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 mt-8 md:mt-20 flex flex-col items-center text-center">
         
         {/* Micro-heading */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-2 mb-6"
+          className="flex items-center gap-3 mb-6"
         >
-          <Leaf size={16} className="text-accent" />
+          <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+            <Leaf size={16} className="text-accent drop-shadow-md" />
+          </motion.div>
           <span className="font-body text-xs md:text-sm font-bold tracking-[0.2em] text-white/90 uppercase">
             Transform Your Environment
           </span>
-          <Leaf size={16} className="text-accent" />
+          <motion.div animate={{ rotate: -360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
+            <Leaf size={16} className="text-accent drop-shadow-md" />
+          </motion.div>
         </motion.div>
 
         {/* Master Headline */}

@@ -3,6 +3,7 @@
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import AnimatedFloral from "./AnimatedFloral";
 
 const processes = [
   {
@@ -29,8 +30,11 @@ const processes = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-20 md:py-32 bg-white border-t border-border">
-      <div className="section-container">
+    <section className="py-20 md:py-32 bg-white relative overflow-hidden border-t border-border">
+      <AnimatedFloral className="-left-32 -top-20 w-80 h-80 text-accent opacity-[0.02] md:opacity-[0.04]" delay={0.5} duration={25} />
+      <AnimatedFloral className="-right-10 bottom-10 w-64 h-64 text-accent opacity-[0.03] md:opacity-[0.05]" delay={2} duration={22} />
+      
+      <div className="section-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <div className="lg:sticky lg:top-32">
             <span className="inline-block px-4 py-1.5 bg-accent/5 border border-accent/10 rounded-full text-xs font-body font-bold text-accent tracking-widest uppercase mb-6">

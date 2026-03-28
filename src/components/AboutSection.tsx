@@ -4,14 +4,17 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import AnimatedFloral from "./AnimatedFloral";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" ref={ref} className="py-20 md:py-28 bg-background">
-      <div className="section-container">
+    <section id="about" ref={ref} className="py-20 md:py-28 bg-background relative overflow-hidden">
+      <AnimatedFloral className="-right-20 -bottom-20 w-64 h-64 md:w-96 md:h-96 text-primary opacity-[0.03]" delay={1} duration={20} />
+      
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
