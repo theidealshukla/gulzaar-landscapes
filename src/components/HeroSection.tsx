@@ -45,8 +45,7 @@ export default function HeroSection() {
       />
 
       {/* ─── Hero Content ─── */}
-      <div className="relative z-10 flex flex-col items-center text-center h-full pt-24 md:pt-32 lg:pt-36"
-      >
+      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-4">
         {/* Badge Pill */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -115,66 +114,6 @@ export default function HeroSection() {
           </Link>
         </motion.div>
 
-        {/* ─── Trust Bar / Partners at bottom ─── */}
-        <div className="mt-auto pb-8 pt-16 w-full flex flex-col items-center">
-          {/* Stats bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.5 }}
-            className="liquid-glass rounded-3xl px-6 md:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl w-full mx-4"
-          >
-            {/* Avatars + Rating */}
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full border-2 border-black bg-gray-200 overflow-hidden relative shadow-sm"
-                  >
-                    <Image
-                      src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                      alt="Client"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <div className="flex items-center gap-0.5 text-yellow-400">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                  ))}
-                </div>
-                <p
-                  className="font-medium mt-0.5 text-white/90 text-xs"
-                  style={{ fontFamily: "var(--font-body-glass)" }}
-                >
-                  500+ Happy Clients
-                </p>
-              </div>
-            </div>
-
-            {/* Trust points */}
-            <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2"
-              style={{ fontFamily: "var(--font-body-glass)" }}
-            >
-              <div className="flex items-center gap-2 text-white/90 text-xs font-medium">
-                <Check className="w-4 h-4 text-green-400" />
-                Free Consultations
-              </div>
-              <div className="flex items-center gap-2 text-white/90 text-xs font-medium">
-                <Check className="w-4 h-4 text-green-400" />
-                Custom 3D Designs
-              </div>
-              <div className="flex items-center gap-2 text-white/90 text-xs font-medium">
-                <Check className="w-4 h-4 text-green-400" />
-                1-Year Guarantee
-              </div>
-            </div>
-          </motion.div>
-        </div>
       </div>
     </section>
   );
