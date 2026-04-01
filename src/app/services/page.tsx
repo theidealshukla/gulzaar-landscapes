@@ -41,22 +41,23 @@ export default function ServicesPage() {
         imageSrc="https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=2000&auto=format&fit=crop"
       />
 
-      {/* Services Grid (reusing home page section) */}
-      <div className="-mt-20">
+      {/* Services Grid */}
+      <div className="-mt-10 md:-mt-20">
         <ServicesSection />
       </div>
 
       {/* Process Section */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-14 md:py-32 bg-white">
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-start">
+            {/* Left: Header — responsive */}
             <div className="lg:sticky lg:top-32">
-              <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6 leading-tight">
                 Our Proven Work
                 <br />
                 <span className="text-accent italic">Process</span>
               </h2>
-              <p className="font-body text-secondary mb-10 text-lg">
+              <p className="font-body text-secondary mb-6 md:mb-10 text-sm md:text-lg">
                 Delivering a breathtaking landscape requires meticulous planning, an
                 expert eye, and dedicated craftsmanship. Here is how we ensure your
                 garden thrives.
@@ -64,38 +65,39 @@ export default function ServicesPage() {
               
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-body text-sm font-semibold tracking-wide rounded-full hover:bg-accent-light transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 bg-accent text-white font-body text-sm font-semibold tracking-wide rounded-full hover:bg-accent-light transition-all duration-300"
               >
                 Request a Quote
                 <ArrowUpRight size={16} />
               </Link>
             </div>
 
-            <div className="space-y-12">
+            {/* Right: Steps — compact on mobile */}
+            <div className="space-y-8 md:space-y-12">
               {processes.map((proc, index) => (
-                <div key={proc.step} className="group flex gap-6 md:gap-8 items-start relative">
+                <div key={proc.step} className="group flex gap-4 md:gap-8 items-start relative">
                   {/* Decorator line */}
                   {index !== processes.length - 1 && (
-                    <div className="absolute left-6 top-16 bottom-[-3rem] w-px bg-border group-hover:bg-accent/50 transition-colors duration-500" />
+                    <div className="absolute left-5 md:left-6 top-12 md:top-16 bottom-[-2rem] md:bottom-[-3rem] w-px bg-border group-hover:bg-accent/50 transition-colors duration-500" />
                   )}
                   
-                  <div className="flex-shrink-0 w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center font-heading text-xl font-bold text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:border-accent">
+                  <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 bg-cream border border-border rounded-full flex items-center justify-center font-heading text-lg md:text-xl font-bold text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:border-accent">
                     {proc.step}
                   </div>
                   
-                  <div className="pb-4">
-                    <h3 className="font-heading text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
+                  <div className="pb-2 md:pb-4">
+                    <h3 className="font-heading text-xl md:text-2xl font-bold text-primary mb-2 md:mb-3 group-hover:text-accent transition-colors duration-300">
                       {proc.title}
                     </h3>
-                    <p className="font-body text-secondary/80 leading-relaxed text-sm md:text-base">
+                    <p className="font-body text-secondary/80 leading-relaxed text-xs md:text-base">
                       {proc.description}
                     </p>
-                    <ul className="mt-4 space-y-2">
-                      <li className="flex items-center gap-2 font-body text-xs text-muted uppercase tracking-widest font-semibold">
-                        <CheckCircle2 size={14} className="text-accent" /> Premium Quality
+                    <ul className="mt-3 md:mt-4 space-y-1.5 md:space-y-2">
+                      <li className="flex items-center gap-2 font-body text-[10px] md:text-xs text-muted uppercase tracking-widest font-semibold">
+                        <CheckCircle2 size={12} className="text-accent" /> Premium Quality
                       </li>
-                      <li className="flex items-center gap-2 font-body text-xs text-muted uppercase tracking-widest font-semibold">
-                        <CheckCircle2 size={14} className="text-accent" /> Expert Execution
+                      <li className="flex items-center gap-2 font-body text-[10px] md:text-xs text-muted uppercase tracking-widest font-semibold">
+                        <CheckCircle2 size={12} className="text-accent" /> Expert Execution
                       </li>
                     </ul>
                   </div>

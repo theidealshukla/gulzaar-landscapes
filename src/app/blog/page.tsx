@@ -84,12 +84,12 @@ export default function BlogIndexPage() {
         imageSrc="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
       />
 
-      <section className="py-20 md:py-28 bg-cream border-t border-border">
+      <section className="py-14 md:py-28 bg-cream border-t border-border">
         <div className="section-container max-w-5xl">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-border pb-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-10 md:mb-16 border-b border-border pb-4 md:pb-6">
             <div>
-              <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary">
+              <h3 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
                 Latest Publications
               </h3>
             </div>
@@ -98,99 +98,101 @@ export default function BlogIndexPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-12 md:gap-16">
+          <div className="flex flex-col gap-8 md:gap-16">
             
-            {/* Featured Post (First item styled slightly larger) */}
-            <article className="group flex flex-col md:flex-row gap-8 lg:gap-12 items-center">
-              <Link href={`/blog/${featuredPost.slug}`} className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src={featuredPost.image}
-                    alt={featuredPost.title}
-                    fill
-                    unoptimized
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority
-                  />
+            {/* Featured Post */}
+            <article className="group flex flex-col md:flex-row gap-5 md:gap-8 lg:gap-12 items-start md:items-center">
+              <Link href={`/blog/${featuredPost.slug}`} className="w-full md:w-1/2 relative aspect-[16/10] md:aspect-[4/3] rounded-xl md:rounded-2xl overflow-hidden shadow-md">
+                <Image src={featuredPost.image} alt={featuredPost.title} fill unoptimized className="object-cover transition-transform duration-700 group-hover:scale-105" priority />
               </Link>
               
               <div className="w-full md:w-1/2 flex flex-col justify-center">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-body text-xs font-bold text-white bg-accent px-3 py-1 rounded-full uppercase tracking-wider">
+                <div className="flex items-center gap-3 mb-3 md:mb-4">
+                  <span className="font-body text-[10px] md:text-xs font-bold text-white bg-accent px-2.5 md:px-3 py-0.5 md:py-1 rounded-full uppercase tracking-wider">
                     {featuredPost.category}
                   </span>
-                  <span className="font-body text-xs text-muted flex items-center gap-1">
-                    <Clock size={14} /> {featuredPost.readTime}
+                  <span className="font-body text-[10px] md:text-xs text-muted flex items-center gap-1">
+                    <Clock size={12} /> {featuredPost.readTime}
                   </span>
                 </div>
                 
                 <Link href={`/blog/${featuredPost.slug}`}>
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary leading-tight mb-4 group-hover:text-accent transition-colors duration-300">
+                  <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-tight mb-3 md:mb-4 group-hover:text-accent transition-colors duration-300">
                     {featuredPost.title}
                   </h2>
                 </Link>
                 
-                <p className="font-body text-secondary text-base leading-relaxed mb-6">
+                <p className="font-body text-secondary text-sm md:text-base leading-relaxed mb-4 md:mb-6 line-clamp-2 md:line-clamp-none">
                   {featuredPost.excerpt}
                 </p>
                 
-                <div className="flex items-center justify-between border-t border-border pt-6">
+                <div className="flex items-center justify-between border-t border-border pt-4 md:pt-6">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary shadow-sm border border-border">
-                      <User size={18} />
+                    <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center text-primary shadow-sm border border-border">
+                      <User size={16} />
                     </div>
                     <div>
-                      <p className="font-body text-sm font-bold text-primary leading-none mb-1">{featuredPost.author}</p>
-                      <p className="font-body text-xs text-muted leading-none">{featuredPost.date}</p>
+                      <p className="font-body text-xs md:text-sm font-bold text-primary leading-none mb-1">{featuredPost.author}</p>
+                      <p className="font-body text-[10px] md:text-xs text-muted leading-none">{featuredPost.date}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </article>
 
-            {/* Separator line */}
-            <div className="w-full h-px bg-border my-2" />
+            <div className="w-full h-px bg-border my-0 md:my-2" />
 
-            {/* List of other posts */}
-            {posts.map((post) => (
-              <article key={post.slug} className="group flex flex-col sm:flex-row gap-6 lg:gap-10">
-                <Link href={`/blog/${post.slug}`} className="w-full sm:w-1/3 md:w-1/4 relative aspect-video sm:aspect-square md:aspect-[4/3] rounded-xl overflow-hidden shadow-sm flex-shrink-0">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    unoptimized
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </Link>
-                
-                <div className="w-full sm:w-2/3 md:w-3/4 flex flex-col justify-center py-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="font-body text-[10px] font-bold text-accent uppercase tracking-widest">
-                      {post.category}
-                    </span>
-                    <span className="w-1 h-1 rounded-full bg-border" />
-                    <span className="font-body text-[11px] text-muted flex items-center gap-1">
-                      <Clock size={12} /> {post.readTime}
+            {/* Mobile: Compact 2-col grid for posts. Desktop: list layout */}
+            <div className="grid grid-cols-2 gap-3 md:hidden">
+              {posts.map((post) => (
+                <Link
+                  href={`/blog/${post.slug}`}
+                  key={post.slug}
+                  className="group flex flex-col rounded-xl overflow-hidden border border-border bg-white"
+                >
+                  <div className="relative h-[100px] w-full overflow-hidden">
+                    <Image src={post.image} alt={post.title} fill unoptimized className="object-cover" />
+                  </div>
+                  <div className="p-3 flex flex-col flex-1">
+                    <span className="font-body text-[8px] font-bold text-accent uppercase tracking-widest mb-1">{post.category}</span>
+                    <h3 className="font-heading text-sm font-bold text-primary leading-tight mb-1 line-clamp-2">{post.title}</h3>
+                    <span className="font-body text-[9px] text-muted flex items-center gap-1 mt-auto">
+                      <Clock size={10} /> {post.readTime}
                     </span>
                   </div>
-                  
-                  <Link href={`/blog/${post.slug}`}>
-                    <h3 className="font-heading text-2xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors duration-300">
-                      {post.title}
-                    </h3>
+                </Link>
+              ))}
+            </div>
+
+            {/* Desktop: List of posts */}
+            <div className="hidden md:flex flex-col gap-12">
+              {posts.map((post) => (
+                <article key={post.slug} className="group flex flex-row gap-6 lg:gap-10">
+                  <Link href={`/blog/${post.slug}`} className="w-1/4 relative aspect-[4/3] rounded-xl overflow-hidden shadow-sm flex-shrink-0">
+                    <Image src={post.image} alt={post.title} fill unoptimized className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </Link>
                   
-                  <p className="font-body text-sm md:text-base text-secondary/80 leading-relaxed max-w-2xl mb-4 line-clamp-2 md:line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  
-                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-1 font-body text-xs font-semibold text-primary uppercase tracking-widest mt-auto group-hover:text-accent transition-colors duration-200">
-                    Read Story
-                    <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
-                </div>
-              </article>
-            ))}
+                  <div className="w-3/4 flex flex-col justify-center py-2">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-body text-[10px] font-bold text-accent uppercase tracking-widest">{post.category}</span>
+                      <span className="w-1 h-1 rounded-full bg-border" />
+                      <span className="font-body text-[11px] text-muted flex items-center gap-1"><Clock size={12} /> {post.readTime}</span>
+                    </div>
+                    
+                    <Link href={`/blog/${post.slug}`}>
+                      <h3 className="font-heading text-2xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors duration-300">{post.title}</h3>
+                    </Link>
+                    
+                    <p className="font-body text-base text-secondary/80 leading-relaxed max-w-2xl mb-4 line-clamp-3">{post.excerpt}</p>
+                    
+                    <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-1 font-body text-xs font-semibold text-primary uppercase tracking-widest mt-auto group-hover:text-accent transition-colors duration-200">
+                      Read Story
+                      <ArrowUpRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
 
           </div>
         </div>

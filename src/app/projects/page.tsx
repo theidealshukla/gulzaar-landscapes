@@ -24,20 +24,46 @@ export default function ProjectsPage() {
       />
 
       {/* Projects Grid Section */}
-      <section className="py-20 md:py-32 bg-background">
+      <section className="py-14 md:py-32 bg-background">
         <div className="section-container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-10 md:mb-16">
             <div className="max-w-xl">
-              <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight">
-                Featured Works <br />& Completed Projects
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-3 md:mb-4 leading-tight">
+                Featured Works <br />&amp; Completed Projects
               </h2>
-              <p className="font-body text-secondary text-lg">
+              <p className="font-body text-secondary text-sm md:text-lg">
                 Our portfolio spans diverse environments. Filter to see what inspires you.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[300px] gap-4 md:gap-6">
+          {/* Mobile: 2-col compact grid. Desktop: 3-col masonry */}
+          <div className="grid grid-cols-2 gap-3 md:hidden">
+            {projects.map((project) => (
+              <Link
+                href={`/projects/${project.slug}`}
+                key={project.slug}
+                className="group relative rounded-xl overflow-hidden cursor-pointer block h-[180px]"
+              >
+                <Image
+                  src={project.mainImage}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                
+                <div className="absolute inset-0 p-3 flex flex-col justify-end">
+                  <span className="text-[8px] font-bold text-white/80 uppercase tracking-widest mb-0.5">{project.category}</span>
+                  <h3 className="font-heading text-sm font-bold text-white leading-tight">{project.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop: Original masonry grid */}
+          <div className="hidden md:grid grid-cols-3 auto-rows-[300px] gap-4 md:gap-6">
             {projects.map((project) => (
               <Link
                 href={`/projects/${project.slug}`}
