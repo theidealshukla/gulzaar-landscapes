@@ -16,14 +16,14 @@ export default function NewsletterSection() {
         <p className="text-white/90 mb-6 md:mb-10 text-sm md:text-base">
           Leave your email and our design experts will get in touch with you shortly to schedule a site visit.
         </p>
-        <form className="flex flex-col sm:flex-row items-center justify-center max-w-lg mx-auto bg-white p-1.5 rounded-full overflow-hidden shadow-lg">
+        <form className="flex flex-col sm:flex-row items-center justify-center max-w-lg mx-auto bg-white p-2 sm:p-1.5 rounded-[2rem] sm:rounded-full shadow-lg">
           <input 
             type="email" 
             placeholder="Email Address" 
-            className="w-full px-5 py-2.5 md:px-6 md:py-3 bg-transparent outline-none text-[#1A3626] font-body text-sm"
+            className="w-full px-4 sm:px-5 py-3 sm:py-2.5 md:px-6 md:py-3 bg-transparent outline-none text-[#1A3626] font-body text-base sm:text-sm"
             required
           />
-          <button type="submit" className="w-full sm:w-auto bg-[#1A3626] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm font-medium sm:ml-2 hover:bg-[#254d36] transition-colors whitespace-nowrap">
+          <button type="submit" className="w-full sm:w-auto bg-[#1A3626] text-white px-6 md:px-8 py-3.5 sm:py-2.5 md:py-3 rounded-[1.5rem] sm:rounded-full text-base sm:text-sm font-medium mt-1 sm:mt-0 sm:ml-2 hover:bg-[#254d36] transition-colors whitespace-nowrap">
             Contact Us
           </button>
         </form>
