@@ -49,7 +49,7 @@ export default function Navbar() {
               alt="Gulzaar Landscapes"
               fill
               className={`object-contain object-left pointer-events-none transition-all duration-300 group-hover:opacity-80 ${
-                isGlass ? "brightness-0 invert" : ""
+                isGlass && !isMobileOpen ? "brightness-0 invert" : ""
               }`}
             />
           </Link>
@@ -134,7 +134,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-5"
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl flex flex-col items-center justify-center gap-5"
           >
             {navLinks.map((link, i) => (
               <motion.div
@@ -147,7 +147,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsMobileOpen(false)}
-                  className="text-3xl text-white/90 hover:text-white transition-colors"
+                  className="text-3xl text-[#1A3626] font-semibold hover:text-[#254d36] transition-colors"
                   style={{ fontFamily: "var(--font-heading-glass)", fontStyle: "italic" }}
                 >
                   {link.label}
@@ -162,7 +162,7 @@ export default function Navbar() {
             >
               <a
                 href="tel:+919876543210"
-                className="flex items-center gap-2 text-lg text-white/70"
+                className="flex items-center gap-2 text-lg text-[#1A3626]/80 hover:text-[#1A3626] transition-colors"
                 style={{ fontFamily: "var(--font-body-glass)" }}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -173,7 +173,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setIsMobileOpen(false)}
-                className="bg-white text-black px-8 py-3 rounded-full text-lg font-medium flex items-center gap-2 active:scale-95 transition-transform"
+                className="bg-[#1A3626] text-white px-8 py-3 rounded-full text-lg font-medium flex items-center gap-2 active:scale-95 transition-transform"
                 style={{ fontFamily: "var(--font-body-glass)" }}
               >
                 Get Started

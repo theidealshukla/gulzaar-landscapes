@@ -64,7 +64,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             className="w-48 h-48 relative mx-auto mb-10"
           >
-            <Image src="/images/greennest/why_choose_center.png" alt="Potted Monstera Plant" fill className="object-contain" />
+            <Image src="/images/greennest/why_choose_center.png" alt="Why Choose Us" fill className="object-contain" />
             <div className="absolute inset-0 bg-[#1A3626]/5 blur-3xl rounded-full scale-75 -z-10"></div>
           </motion.div>
 
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8 }} className="flex-1 w-full max-w-sm relative aspect-square group">
-            <Image src="/images/greennest/why_choose_center.png" alt="Potted Monstera Plant" fill className="object-contain group-hover:scale-105 transition-transform duration-700" />
+            <Image src="/images/greennest/why_choose_center.png" alt="Why Choose Us" fill className="object-contain group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-[#1A3626]/5 blur-3xl rounded-full scale-75 -z-10 group-hover:scale-95 transition-transform duration-700"></div>
           </motion.div>
 
@@ -275,9 +275,9 @@ export default function Home() {
           <p className="text-white/90 mb-6 md:mb-10 text-sm md:text-base">
             Leave your email and our design experts will get in touch with you shortly to schedule a site visit.
           </p>
-          <form className="flex flex-col sm:flex-row items-center max-w-lg mx-auto bg-white p-1.5 rounded-full">
-            <input type="email" placeholder="Email Address" className="w-full px-5 py-2.5 md:px-6 md:py-3 bg-transparent outline-none text-[#1A3626] rounded-full text-sm" required />
-            <button type="submit" className="w-full sm:w-auto bg-[#1A3626] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full text-sm font-medium sm:ml-2 hover:bg-[#254d36] transition-colors whitespace-nowrap">
+          <form className="flex flex-col sm:flex-row items-center max-w-lg mx-auto w-full gap-3 sm:gap-0 sm:bg-white sm:p-1.5 sm:rounded-full">
+            <input type="email" placeholder="Email Address" className="w-full px-6 py-3.5 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-white sm:bg-transparent outline-none text-[#1A3626] rounded-full text-sm shadow-lg sm:shadow-none" required />
+            <button type="submit" className="w-full sm:w-auto bg-[#1A3626] text-white px-8 py-3.5 sm:px-6 md:px-8 sm:py-2.5 md:py-3 rounded-full text-sm font-medium sm:ml-2 hover:bg-[#254d36] transition-colors whitespace-nowrap shadow-lg sm:shadow-none">
               Contact Us
             </button>
           </form>
