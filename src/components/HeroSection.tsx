@@ -10,8 +10,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative w-full overflow-hidden bg-black"
-      style={{ height: "1000px" }}
+      className="relative w-full overflow-hidden bg-black h-[100dvh]"
     >
       {/* ─── Background Media (responsive) ─── */}
       {/* Desktop Video — hidden on mobile */}
@@ -46,8 +45,7 @@ export default function HeroSection() {
       />
 
       {/* ─── Hero Content ─── */}
-      <div className="relative z-10 flex flex-col items-center text-center h-full"
-        style={{ paddingTop: "150px" }}
+      <div className="relative z-10 flex flex-col items-center text-center h-full pt-24 md:pt-32 lg:pt-36"
       >
         {/* Badge Pill */}
         <motion.div
