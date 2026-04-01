@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import { Play, Check, Star, Leaf, RefreshCw, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -12,85 +13,11 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-[#1A3626] font-body">
 
-      {/* --- 1. CINEMATIC HERO SECTION --- */}
-      <section className="relative w-full h-screen min-h-[800px] flex items-center bg-[#0c1f13] overflow-hidden">
-        
-        <Navbar />
+      {/* Fixed Navbar */}
+      <Navbar />
 
-        {/* Hero Background Image - Full Bleed */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <motion.div initial={{ scale: 1.05 }} animate={{ scale: 1 }} transition={{ duration: 1.5, ease: 'easeOut' }} className="w-full h-full relative">
-            <Image
-              src="/images/greennest/hero-bg.jpg"
-              alt="Lush cinematic green garden patio with sleeping cat"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-            {/* Cinematic lighting gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0c1f13]/95 via-[#0c1f13]/40 to-black/30 w-full h-full"></div>
-            {/* Subtle radial vignette for cinematic depth */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.6)_100%)]"></div>
-          </motion.div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-24 pb-48 md:pb-40 flex flex-col justify-end h-full">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl mt-auto"
-          >
-            <span className="inline-block text-xs font-semibold tracking-wider uppercase mb-6 text-white/90 border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-lg">
-              Expert Landscaping in Indore, IN
-            </span>
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 text-white drop-shadow-2xl">
-              Art of the landscape for every corner of your estate.
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 mb-10 max-w-lg font-body leading-relaxed drop-shadow-md">
-              Transform your outdoor space into a captivating haven with Gulzaar Landscapes' expert design, development, and maintenance.
-            </p>
-            
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.6 }} className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Link href="/contact" className="bg-white text-[#1A3626] px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all shadow-xl hover:scale-105 active:scale-95 text-center">
-                Get a Free Quote
-              </Link>
-              <Link href="/about" className="flex items-center gap-3 group text-white font-medium hover:text-white/80 transition-colors">
-                <div className="w-14 h-14 bg-white/10 border border-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform group-hover:bg-white/20">
-                  <Play className="w-5 h-5 ml-1 fill-white" />
-                </div>
-                See our process
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Cinematic Trust Stats / Mini Banner */}
-        <div className="absolute bottom-6 md:bottom-10 left-6 lg:left-12 right-6 lg:right-12 z-20">
-          <div className="bg-black/40 backdrop-blur-2xl border border-white/10 p-5 md:px-8 md:py-5 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl max-w-7xl mx-auto ring-1 ring-white/5">
-            <div className="flex w-full md:w-auto items-center justify-between md:justify-start gap-4">
-              <div className="flex -space-x-3">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#1A3626] bg-gray-200 overflow-hidden relative shadow-sm">
-                    <Image src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Client" fill className="object-cover" />
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm">
-                <div className="flex items-center gap-1 text-yellow-400">
-                  {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current" />)}
-                </div>
-                <p className="font-medium mt-1 text-white/90 tracking-wide text-xs md:text-sm">500+ Happy Clients</p>
-              </div>
-            </div>
-            
-            <div className="w-full md:w-auto grid grid-cols-1 sm:flex gap-x-8 gap-y-3 text-white/90">
-              <div className="flex items-center justify-center sm:justify-start gap-2 font-medium text-xs tracking-wide"><Check className="w-4 h-4 text-green-400 drop-shadow" /> Free Consultations</div>
-              <div className="flex items-center justify-center sm:justify-start gap-2 font-medium text-xs tracking-wide"><Check className="w-4 h-4 text-green-400 drop-shadow" /> Custom 3D Designs</div>
-              <div className="flex items-center justify-center sm:justify-start gap-2 font-medium text-xs tracking-wide"><Check className="w-4 h-4 text-green-400 drop-shadow" /> 1-Year Guarantee</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* --- 1. PREMIUM HERO SECTION --- */}
+      <HeroSection />
 
       {/* --- 2. WHY CHOOSE US SECTION --- */}
       <section id="about" className="pt-40 pb-20 w-full max-w-7xl mx-auto px-6 lg:px-12 text-center overflow-hidden">
