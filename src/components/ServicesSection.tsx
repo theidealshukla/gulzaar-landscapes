@@ -1,119 +1,64 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Home, TreePine, Flower2, Sun, Sprout, Droplets } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
-  {
-    icon: Home,
-    title: "Farmhouse Design",
-    description: "Expansive, natural elegance designed specifically for large estate landscapes.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: TreePine,
-    title: "Theme Garden",
-    description: "Curated gardens based on specific aesthetics like Zen, Tropical, or Mediterranean.",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Flower2,
-    title: "Terrace Garden",
-    description: "Elevate your roof space with vibrant plants and comfortable outdoor living zones.",
-    image: "https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Sun,
-    title: "Balcony Garden",
-    description: "Transform compact urban balconies into lush, intimate personal retreats.",
-    image: "https://images.unsplash.com/photo-1524247108137-732e0f642303?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Sprout,
-    title: "Lawn Gardens",
-    description: "Lush, perfectly manicured green carpets that breathe life into your exterior.",
-    image: "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    icon: Droplets,
-    title: "Indoor Plants",
-    description: "Bring nature inside with expert advice on houseplant selection and care.",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=800&auto=format&fit=crop",
-  },
+  { title: "Farmhouse Design", desc: "Expansive natural elegance", img: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800" },
+  { title: "Theme Garden", desc: "Curated specific aesthetics", img: "https://images.unsplash.com/photo-1598902108854-10e335adac99?q=80&w=800" },
+  { title: "Terrace Garden", desc: "Vibrant patio living zones", img: "https://images.unsplash.com/photo-1584738766473-61c083514bf4?q=80&w=800" },
+  { title: "Balcony Garden", desc: "Intimate personal retreats", img: "https://images.unsplash.com/photo-1524247108137-732e0f642303?q=80&w=800" },
+  { title: "Lawn Gardens", desc: "Manicured green carpets", img: "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=800" },
+  { title: "Indoor Plants", desc: "Bring nature inside", img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=800" },
+  { title: "Hardscaping", desc: "Stone pathways & features", img: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=800" },
+  { title: "Maintenance", desc: "Year-long garden upkeep", img: "https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=800" },
 ];
 
 export default function ServicesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-cream relative z-10" id="services">
-      <div className="section-container">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-20">
-          <div className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 bg-primary/5 border border-primary/10 rounded-full text-xs font-body font-bold text-accent tracking-widest uppercase mb-6">
-              Our Expertise
-            </span>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 leading-[1.1]">
-              Expert Solutions for <br />
-              <span className="text-secondary italic">Every Green Space</span>
-            </h2>
-            <p className="font-body text-secondary text-base md:text-lg leading-relaxed">
-              We don’t just plant gardens—we engineer ecosystems tailored to your lifestyle. 
-              From expansive farmhouses to compact urban balconies, our specialized 
-              services ensure your space flourishes year-round.
-            </p>
-          </div>
-        </div>
+    <section id="services" className="py-20 w-full max-w-7xl mx-auto px-6 lg:px-12 text-center bg-transparent z-10 relative">
+      <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="font-heading text-4xl md:text-5xl font-semibold mb-3 text-[#1A3626]">
+        Our Signature Services
+      </motion.h2>
+      <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, delay: 0.2 }} className="text-gray-600 mb-10 max-w-2xl mx-auto">
+        We design, create and maintain breathtaking landscapes tailored to your lifestyle.
+      </motion.p>
 
-        {/* Services Grid (Horizontal Scroll on Mobile, Grid on Desktop) */}
-        <div className="flex flex-nowrap md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-8 md:pb-0 hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative h-[360px] md:h-[400px] w-[85vw] sm:w-[50vw] md:w-auto flex-shrink-0 snap-center rounded-[2rem] overflow-hidden cursor-pointer"
-            >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8 transition-opacity duration-300 group-hover:from-black/95">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mb-4 md:mb-6 transform transition-transform duration-500 group-hover:-translate-y-2 group-hover:bg-accent border border-white/20">
-                  <service.icon className="text-white w-5 h-5" />
-                </div>
-                
-                <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 transform transition-transform duration-500 group-hover:-translate-y-2">
-                  {service.title}
-                </h3>
-                
-                <p className="font-body text-white/80 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100 line-clamp-2 md:line-clamp-none">
-                  {service.description}
-                </p>
+      {/* Filter Navigation */}
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="flex items-center justify-center gap-6 md:gap-10 mb-12 border-b border-gray-200 pb-4 overflow-x-auto text-sm font-medium hide-scrollbar">
+        <button className="text-[#1A3626] border-b-2 border-[#1A3626] px-2 py-1 whitespace-nowrap">All Services</button>
+        <button className="text-gray-500 hover:text-[#1A3626] transition-colors px-2 py-1 whitespace-nowrap">Farmhouse</button>
+        <button className="text-gray-500 hover:text-[#1A3626] transition-colors px-2 py-1 whitespace-nowrap">Terrace</button>
+        <button className="text-gray-500 hover:text-[#1A3626] transition-colors px-2 py-1 whitespace-nowrap">Lawn & Indoor</button>
+      </motion.div>
 
-                <Link
-                  href="/services"
-                  className="font-body text-[10px] md:text-xs font-semibold tracking-widest uppercase text-white hover:text-accent transition-colors duration-300 flex items-center gap-2 transform translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-150"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Explore Service
-                  <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+      {/* Grid */}
+      <motion.div 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } }, hidden: {} }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left"
+      >
+        {services.map((item, i) => (
+          <motion.div 
+            key={i} 
+            variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+            className="group flex flex-col relative bg-white border border-gray-100 rounded-2xl p-4 overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-2 cursor-pointer"
+          >
+            <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-gray-50 mb-4">
+              <Image src={item.img} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500"></div>
+            </div>
+            <h3 className="font-heading font-bold text-xl text-[#1A3626] mb-1 drop-shadow-sm">{item.title}</h3>
+            <p className="text-gray-500 text-sm mb-4">{item.desc}</p>
+            
+            {/* Hover Button */}
+            <Link href="/contact" className="w-[calc(100%-2rem)] flex justify-center bg-[#1A3626] text-white py-2.5 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 absolute bottom-4 left-1/2 -translate-x-1/2 translate-y-4 group-hover:translate-y-0 shadow-lg hover:bg-[#254d36]">
+              Request Quote
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

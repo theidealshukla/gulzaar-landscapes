@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import PageHero from "@/components/PageHero";
 import Footer from "@/components/Footer";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,7 +29,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             
             {/* Contact Details */}
-            <div className="space-y-12">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="space-y-12">
               <div>
                 <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
                   Let's Build Something <br />
@@ -40,9 +41,9 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-accent w-5 h-5" />
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shadow-sm">
+                    <MapPin className="text-accent group-hover:text-white w-5 h-5 transition-colors" />
                   </div>
                   <div>
                     <h4 className="font-heading text-xl font-bold text-primary mb-2">Visit Us</h4>
@@ -53,68 +54,68 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-accent w-5 h-5" />
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shadow-sm">
+                    <Phone className="text-accent group-hover:text-white w-5 h-5 transition-colors" />
                   </div>
                   <div>
                     <h4 className="font-heading text-xl font-bold text-primary mb-2">Call Us</h4>
                     <p className="font-body text-secondary/80 text-sm leading-relaxed">
-                      +91 8770897676<br />
+                      <a href="tel:+918770897676" className="hover:text-accent transition-colors">+91 8770897676</a><br />
                       Mon-Sat: 9am - 6pm
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-accent w-5 h-5" />
+                <div className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 bg-cream border border-border rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white group-hover:border-accent transition-all duration-300 shadow-sm">
+                    <Mail className="text-accent group-hover:text-white w-5 h-5 transition-colors" />
                   </div>
                   <div>
                     <h4 className="font-heading text-xl font-bold text-primary mb-2">Email Us</h4>
                     <p className="font-body text-secondary/80 text-sm leading-relaxed">
-                      business@gulzaarlandscapes.com
+                      <a href="mailto:business@gulzaarlandscapes.com" className="hover:text-accent transition-colors">business@gulzaarlandscapes.com</a>
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 md:p-12 rounded-3xl border border-border shadow-card relative">
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="bg-white p-8 md:p-12 rounded-3xl border border-border shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-shadow duration-500 relative">
               <h3 className="font-heading text-3xl font-bold text-primary mb-8">
                 Send a Message
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest">
+                  <div className="space-y-2 group">
+                    <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest group-focus-within:text-green-700 transition-colors">
                       Full Name
                     </label>
                     <input
                       type="text"
-                      className="w-full bg-cream border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200"
+                      className="w-full bg-cream/50 border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 shadow-sm"
                       placeholder="John Doe"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest">
+                  <div className="space-y-2 group">
+                    <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest group-focus-within:text-green-700 transition-colors">
                       Email Address
                     </label>
                     <input
                       type="email"
-                      className="w-full bg-cream border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200"
+                      className="w-full bg-cream/50 border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 shadow-sm"
                       placeholder="john@example.com"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest">
+                <div className="space-y-2 group">
+                  <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest group-focus-within:text-green-700 transition-colors">
                     Service Required
                   </label>
-                  <select className="w-full bg-cream border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200 appearance-none">
+                  <select className="w-full bg-cream/50 border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 appearance-none shadow-sm cursor-pointer">
                     <option value="">Select a service...</option>
                     <option value="farmhouse">Farmhouse Garden</option>
                     <option value="lawn">Lawn Renovation</option>
@@ -123,26 +124,26 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest">
+                <div className="space-y-2 group">
+                  <label className="font-body text-xs font-semibold text-primary uppercase tracking-widest group-focus-within:text-green-700 transition-colors">
                     Your Message
                   </label>
                   <textarea
                     rows={5}
-                    className="w-full bg-cream border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200 resize-none"
+                    className="w-full bg-cream/50 border border-border rounded-xl px-4 py-3 text-sm font-body text-primary focus:outline-none focus:bg-white focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 resize-none shadow-sm"
                     placeholder="Tell us about your project..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-accent text-white font-body text-sm font-semibold tracking-wide rounded-xl hover:bg-accent-light hover:shadow-card-hover transition-all duration-300"
+                  className="group w-full flex items-center justify-center gap-2 px-6 py-4 bg-accent text-white font-body text-sm font-semibold tracking-wide rounded-xl hover:bg-[#152c1e] hover:-translate-y-1 hover:shadow-card-hover active:scale-95 transition-all duration-300"
                 >
                   Send Message
-                  <Send size={16} />
+                  <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
               </form>
-            </div>
+            </motion.div>
             
           </div>
         </div>

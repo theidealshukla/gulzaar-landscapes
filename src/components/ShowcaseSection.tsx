@@ -35,10 +35,10 @@ export default function ShowcaseSection() {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-body font-semibold tracking-widest uppercase rounded-full hover:bg-white/20 transition-all duration-300 cursor-pointer"
+            className="group inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-body font-semibold tracking-widest uppercase rounded-full hover:bg-white/20 hover:shadow-[0_8px_30px_rgba(255,255,255,0.1)] hover:-translate-y-1 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             View Portfolio
-            <ArrowUpRight size={14} />
+            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </motion.div>
 

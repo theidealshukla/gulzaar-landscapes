@@ -1,59 +1,32 @@
-"use client";
-
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function NewsletterSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter submit
-    setEmail("");
-  };
-
   return (
-    <section id="contact" ref={ref} className="py-16 md:py-24 bg-cream border-t border-border">
-      <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-xl"
-        >
-          {/* Label */}
-          <span className="inline-block px-3 py-1.5 bg-primary/5 border border-primary/10 rounded-full text-xs font-body font-medium text-muted tracking-widest uppercase mb-5">
-            Newsletter
-          </span>
-
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary leading-tight mb-4">
-            Subscribe to our newsletter to get the{" "}
-            <span className="text-accent">latest updates</span> on our new
-            plants and gardens.
-          </h2>
-
-          {/* Email Form */}
-          <form onSubmit={handleSubmit} className="flex gap-3 mt-6">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email Address"
-              required
-              className="flex-1 px-4 py-3 bg-white border border-border rounded-full text-sm font-body text-primary placeholder:text-muted-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all duration-200"
-            />
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white text-sm font-body font-semibold tracking-wide rounded-full hover:bg-accent-light transition-all duration-300 cursor-pointer"
-            >
-              Subscribe
-              <ArrowUpRight size={14} />
-            </button>
-          </form>
-        </motion.div>
+    <section id="contact" className="w-full relative py-28 flex flex-col items-center justify-center text-center mt-auto">
+      <Image 
+        src="/images/greennest/newsletter_bg.png" 
+        alt="Lush green wall" 
+        fill 
+        className="object-cover brightness-50"
+      />
+      <div className="relative z-10 px-6 max-w-3xl">
+        <h2 className="font-heading text-4xl md:text-5xl font-semibold mb-4 text-white">
+          Let's Discuss Your Project
+        </h2>
+        <p className="text-white/90 mb-10">
+          Leave your email and our design experts will get in touch with you shortly to schedule a site visit.
+        </p>
+        <form className="flex flex-col sm:flex-row items-center justify-center max-w-lg mx-auto bg-white p-1.5 rounded-full overflow-hidden shadow-lg">
+          <input 
+            type="email" 
+            placeholder="Email Address" 
+            className="w-full px-6 py-3 bg-transparent outline-none text-[#1A3626] font-body"
+            required
+          />
+          <button type="submit" className="w-full sm:w-auto bg-[#1A3626] text-white px-8 py-3 rounded-full font-medium sm:ml-2 hover:bg-[#254d36] transition-colors whitespace-nowrap">
+            Contact Us
+          </button>
+        </form>
       </div>
     </section>
   );
